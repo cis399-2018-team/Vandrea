@@ -1,0 +1,63 @@
+1.
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following packages will be REMOVED:
+  openssh-server
+0 upgraded, 0 newly installed, 1 to remove and 1 not upgraded.
+After this operation, 904 kB disk space will be freed.
+Do you want to continue? [Y/n] Y
+(Reading database ... 79899 files and directories currently installed.)
+Removing openssh-server (1:7.2p2-4ubuntu2.4) ...
+Processing triggers for man-db (2.7.5-1) ...
+ubuntu@ip-10-0-4-48:~$ sudo puppet agent -t
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Caching catalog for ip-10-0-4-48.us-west-2.compute.internal
+Info: Applying configuration version '1531871955'
+Notice: /Stage[main]/Sshd/Package[openssh-server]/ensure: created
+Notice: Finished catalog run in 2.85 seconds
+2.
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Caching catalog for ip-10-0-4-48.us-west-2.compute.internal
+Info: Applying configuration version '1531871955'
+Notice: /Stage[main]/Sshd/Service[sshd]/ensure: ensure changed 'stopped' to 'running'
+Info: /Stage[main]/Sshd/Service[sshd]: Unscheduling refresh on Service[sshd]
+Notice: Finished catalog run in 0.08 seconds
+3.
+root@ip-10-0-4-48:~# vim /etc/ssh/sshd_config
+root@ip-10-0-4-48:~# puppet agent -t
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Caching catalog for ip-10-0-4-48.us-west-2.compute.internal
+Info: Applying configuration version '1531871955'
+Notice: /Stage[main]/Sshd/File[/etc/ssh/sshd_config]/content:
+--- /etc/ssh/sshd_config        2018-07-18 00:11:18.820989695 +0000
++++ /tmp/puppet-file20180718-15508-a6bk9p       2018-07-18 00:11:37.320825551 +0000
+@@ -18,7 +18,7 @@
+ # Lifetime and size of ephemeral version 1 server key
+ KeyRegenerationInterval 3600
+ ServerKeyBits 1024
+-asdaasdsa
++
+ # Logging
+ SyslogFacility AUTH
+ LogLevel INFO
+
+Info: Computing checksum on file /etc/ssh/sshd_config
+Info: /Stage[main]/Sshd/File[/etc/ssh/sshd_config]: Filebucketed /etc/ssh/sshd_config to puppet with sum 6896ae4a950a70a19eee10d1bce67392
+Notice: /Stage[main]/Sshd/File[/etc/ssh/sshd_config]/content: content changed '{md5}6896ae4a950a70a19eee10d1bce67392' to '{md5}8383ec31cdeb8b721a56d1e3ea7eb8d5'
+Info: /Stage[main]/Sshd/File[/etc/ssh/sshd_config]: Scheduling refresh of Service[sshd]
+Notice: /Stage[main]/Sshd/Service[sshd]: Triggered 'refresh' from 1 events
+Notice: Finished catalog run in 0.12 seconds
+4.
+Info: Retrieving pluginfacts
+Info: Retrieving plugin
+Info: Caching catalog for ip-10-0-4-48.us-west-2.compute.internal
+Info: Applying configuration version '1531871955'
+Notice: /Stage[main]/Main/Ssh_authorized_key[vohoanvu-key-pair-oregon]/ensure: created
+Info: Computing checksum on file /home/ubuntu/.ssh/authorized_keys
+Notice: Finished catalog run in 0.07 seconds
+
+
