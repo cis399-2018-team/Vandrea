@@ -67,6 +67,39 @@ State Change Actions:
 
 
 
+3/ 3rd Alarm
+You are receiving this email because your Amazon CloudWatch Alarm "awsec2-i-00ba0e5b5b33a85d5-High-Network-In" in the US West (Oregon) region has entered the ALARM state, because "Threshold Crossed: 1 datapoint [10839.0 (07/08/18 05:42:00)] was greater than or equal to the threshold (5000.0)." at "Tuesday 07 August, 2018 05:47:32 UTC".
+
+View this alarm in the AWS Management Console:
+https://console.aws.amazon.com/cloudwatch/home?region=us-west-2#s=Alarms&alarm=awsec2-i-00ba0e5b5b33a85d5-High-Network-In
+
+Alarm Details:
+- Name:                       awsec2-i-00ba0e5b5b33a85d5-High-Network-In
+- Description:                Created from EC2 Console
+- State Change:               OK -> ALARM
+- Reason for State Change:    Threshold Crossed: 1 datapoint [10839.0 (07/08/18 05:42:00)] was greater than or equal to the threshold (5000.0).
+- Timestamp:                  Tuesday 07 August, 2018 05:47:32 UTC
+- AWS Account:                006170570170
+
+Threshold:
+- The alarm is in the ALARM state when the metric is GreaterThanOrEqualToThreshold 5000.0 for 300 seconds. 
+
+Monitored Metric:
+- MetricNamespace:                     AWS/EC2
+- MetricName:                          NetworkIn
+- Dimensions:                          [InstanceId = i-00ba0e5b5b33a85d5]
+- Period:                              300 seconds
+- Statistic:                           Average
+- Unit:                                not specified
+
+
+
+State Change Actions:
+- OK: 
+- ALARM: [arn:aws:sns:us-west-2:006170570170:Vandrea-alarms]
+- INSUFFICIENT_DATA: 
+
+
 
 
 
